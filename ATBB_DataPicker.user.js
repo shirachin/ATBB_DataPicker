@@ -8,6 +8,9 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=athome.co.jp
 // @grant        none
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
+// @updateURL    https://github.com/shirachin/ATBB_DataPicker/raw/main/ATBB_DataPicker.user.js
+// @downloadURL  https://github.com/shirachin/ATBB_DataPicker/raw/main/ATBB_DataPicker.user.js
+// @supportURL   https://github.com/shirachin/ATBB_DataPicker/
 // ==/UserScript==
 
 var $ = window.jQuery;
