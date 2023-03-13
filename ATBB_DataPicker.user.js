@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      1.0.0
+// @version      1.1.0
 // @description  Prepare manuscripts for automatic submission from property information websites.
 // @author       shirachin
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
