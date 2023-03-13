@@ -2,7 +2,7 @@
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
 // @version      1.1.0
-// @description  Prepare manuscripts for automatic submission from property information websites.
+// @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       shirachin
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=athome.co.jp
