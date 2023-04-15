@@ -8,18 +8,17 @@
 // @icon         https://sumaity.com//ui/utility/common/favicon.ico
 // @grant        none
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
-// @updateURL    https://github.com/shirachin/ATBB_DataPicker/raw/main/Sumaity_DataPicker
-// @downloadURL  https://github.com/shirachin/ATBB_DataPicker/raw/main/Sumaity_DataPicker
+// @updateURL    https://github.com/shirachin/ATBB_DataPicker/raw/main/Sumaity_DataPicker.user.js
+// @downloadURL  https://github.com/shirachin/ATBB_DataPicker/raw/main/Sumaity_DataPicker.user.js
 // @supportURL   https://github.com/shirachin/ATBB_DataPicker/
 // ==/UserScript==
 
 var $ = window.jQuery;
 
 (function() {
-    document.onkeydown = function (e){
-        if(e.shiftKey && e.key == "Enter"){
-            sample = $("#neighborhoodInfo > div > div > dl.surroundingInfoList.supermarket > dd > dl:nth-child(1)").text().trim()
-            console.log(sample)
-        }
-    };
+    var current_url = location.host;
+    if(current_url == 'sumaity.com'){
+        let supermarket = document.querySelector("#neighborhoodInfo > div > div > dl.surroundingInfoList.supermarket > dt > span");
+        console.log(supermarket);
+    }
 })();

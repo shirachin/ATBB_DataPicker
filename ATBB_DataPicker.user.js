@@ -66,10 +66,10 @@ var $ = window.jQuery;
                 },
                 "maintenance" : maintenance,
                 "deposit" : "0",
-                "key money" : "0",
-                "floor plan" : floorPlan,
+                "key_money" : "0",
+                "floor_plan" : floorPlan,
                 "area" : area,
-                "building complete" : {
+                "building_complete" : {
                     "year" : building[0],
                     "month" : building[1]
                 },
