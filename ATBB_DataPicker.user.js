@@ -119,7 +119,12 @@ var $ = window.jQuery;
         // 物件番号検索画面判定
         if(pageTitle.indexOf('物件番号検索') > -1){
 
-            alert('物件番号検索')
+            navigator.clipboard.readText().then((text) => {
+                text.split(',').forEach((id, index) => {
+                    pos = index * 2 + 1
+                    document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(1) > td:nth-child(3) > form > table:nth-child(5) > tbody > tr > td.common-data > input:nth-child(" + pos + ")").value = id
+                })
+            })
         }
     }
   };
