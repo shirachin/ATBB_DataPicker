@@ -114,6 +114,13 @@ var $ = window.jQuery;
             $('input[name="chikuNensu"][value="15"]').prop('checked', true);
             $('input[name="kodawariJokenCode"][value="20"]').prop('checked', true);
         }
+
+
+        // 物件番号検索画面判定
+        if(pageTitle.indexOf('物件番号検索') > -1){
+
+            alert('物件番号検索')
+        }
     }
   };
 })();
