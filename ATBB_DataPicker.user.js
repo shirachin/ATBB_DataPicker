@@ -66,6 +66,7 @@ var $ = window.jQuery;
                     }
                 },
                 "maintenance" : maintenance,
+                "facility" : facility,
                 "deposit" : "0",
                 "key_money" : "0",
                 "floor_plan" : floorPlan,
