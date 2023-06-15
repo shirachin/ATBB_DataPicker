@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      1.2.2
+// @version      1.2.3
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       shirachin
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -52,9 +52,7 @@ var $ = window.jQuery;
             var statusQuo = $('td:contains("現況") ~ td:first').text().trim();
             var movingInto = $('td:contains("入居日") ~ td:first').text().trim();
             var insurance = $('td:contains("保険等加入") ~ td:first').text().trim();
-            var facility = $('td:contains("設備") ~ td:first').text().trim();
-
-            console.log(facility)
+            var facility = document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(1) > td:nth-child(3) > form.word-b > table:nth-child(52) > tbody > tr:nth-child(35) > td.common-data.str-o").textContent;
 
             var pushData = {
                 "address" : address,
