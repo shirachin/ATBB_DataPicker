@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      1.2.4
+// @version      1.2.5
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       shirachin
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -64,7 +64,7 @@ var $ = window.jQuery;
                     }
                 },
                 "maintenance" : maintenance,
-                "facility" : facility,
+                //"facility" : facility,
                 "deposit" : "0",
                 "key_money" : "0",
                 "floor_plan" : floorPlan,
