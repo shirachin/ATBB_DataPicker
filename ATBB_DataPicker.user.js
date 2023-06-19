@@ -52,7 +52,7 @@ var $ = window.jQuery;
             var statusQuo = $('td:contains("現況") ~ td:first').text().trim();
             var movingInto = $('td:contains("入居日") ~ td:first').text().trim();
             var insurance = $('td:contains("保険等加入") ~ td:first').text().trim();
-            var facility = document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(1) > td:nth-child(3) > form.word-b > table:nth-child(52) > tbody > tr:nth-child(35) > td.common-data.str-o").textContent;
+            // var facility = document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(1) > td:nth-child(3) > form.word-b > table:nth-child(52) > tbody > tr:nth-child(35) > td.common-data.str-o").textContent;
 
             var pushData = {
                 "address" : address,
