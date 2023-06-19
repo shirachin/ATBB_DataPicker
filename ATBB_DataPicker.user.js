@@ -26,7 +26,7 @@ var $ = window.jQuery;
             console.log('物件詳細画面')
 
             // 住所取得
-            var address = $('td:contains("所在地") ~ td:first').text().trim() + ' /' + $('td:contains("建物名") ~ td:first').text().trim();
+            var address = $('td:contains("所在地") ~ td:first').text().trim() + ' / ' + $('td:contains("建物名") ~ td:first').text().trim();
             var mainStation = $('td:contains("交通") ~ td:first').text().trim();
             var station_1 = $('td:contains("利用駅1") ~ td:first').text().trim();
             var station_2 = $('td:contains("利用駅2") ~ td:first').text().trim();
