@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.0
+// @version      2.1.1
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -20,10 +20,10 @@
                 let result = {
                     '建物情報': {
                         '物件種目': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(1) > td.common-data").textContent.replace(/\s{2}/g, "").trim(),
-                        '建物名・部屋番号': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(2) > td.common-data").textContent.replace(/\s{2}/g, "").trim(),
+                        '建物名': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(2) > td.common-data").textContent.replace(/\s{2}/g, "").trim(),
                         '所在地': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(3) > td.common-data").textContent.replace("地図を見る", "").replace(/\s{2}/g, "").trim(),
                         'その他所在地': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(4) > td.common-data").textContent.replace("地図を見る", "").replace(/\s{2}/g, "").trim(),
-                        '交通(最寄駅/バス停)': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(5) > td.common-data.list-data01-l").textContent.replace(/\s{2}/g, "").trim(),
+                        '交通': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(5) > td.common-data.list-data01-l").textContent.replace(/\s{2}/g, "").trim(),
                         '利用駅1': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(6) > td.common-data").textContent.replace(/\s{2}/g, "").trim(),
                         '利用駅2': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(7) > td.common-data").textContent.replace(/\s{2}/g, "").trim(),
                         'その他交通手段': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(8) > td.common-data").textContent.replace(/\s{2}/g, "").trim(),
@@ -32,8 +32,10 @@
                         '専有面積': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(10) > td:nth-child(2)").textContent.replace(/\s{2}/g, "").trim(),
                         'バルコニー': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(10) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
                         '建物構造': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(11) > td:nth-child(2)").textContent.replace(/\s{2}/g, "").trim(),
-                        '階建/階': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(11) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
-                        '築年月': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(12) > td:nth-child(2)").textContent.replace(/\s{2}/g, "").trim(),
+                        '階建': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(11) > td:nth-child(4)").textContent.split("/")[0].replace(/\s{2}/g, "").trim(),
+                        '階': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(11) > td:nth-child(4)").textContent.split("/")[1].replace(/\s{2}/g, "").trim(),
+                        '築年': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(12) > td:nth-child(2)").textContent.split("年")[0].replace("年", "").replace(/\s{2}/g, "").trim(),
+                        '築月': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(12) > td:nth-child(2)").textContent.split("年")[1].replace("月", "").replace(/\s{2}/g, "").trim(),
                         '総戸数': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(12) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
                         '駐車場': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(13) > td:nth-child(2)").textContent.replace(/\s{2}/g, "").trim(),
                         'バイク置場': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(13) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
@@ -49,6 +51,7 @@
                         '周辺環境': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(2) > tbody > tr:nth-child(22) > td.common-data").textContent.replace(/\s{2}/g, "").trim()
                     },
                     '費用': {
+                        '管理費等': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(36) > table > tbody > tr:nth-child(1) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
                         '管理費': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(6) > tbody > tr:nth-child(1) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
                         '礼金': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(6) > tbody > tr:nth-child(2) > td:nth-child(2)").textContent.replace(/\s{2}/g, "").trim(),
                         '敷金': document.querySelector("body > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td.contents > form.word-b > div:nth-child(40) > table:nth-child(6) > tbody > tr:nth-child(2) > td:nth-child(4)").textContent.replace(/\s{2}/g, "").trim(),
