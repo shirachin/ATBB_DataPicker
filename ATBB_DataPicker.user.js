@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.1
+// @version      2.1.2
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
