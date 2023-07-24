@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.3
+// @version      2.1.4
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -67,21 +67,21 @@
                         '周辺環境': search_element("周辺環境").textContent.replace(/\s{2}/g, "").trim()
                     },
                     '費用': {
-                        '管理費等': search_element("管理費等").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '管理費': search_element("管理費").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '礼金': search_element("礼金").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '敷金': search_element("敷金").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '敷引': search_element("敷引").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '共益費': search_element("共益費").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '雑費': search_element("雑費").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '鍵交換代等': search_element("鍵交換代等").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '保証金': search_element("保証金").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '保証金償却': search_element("保証金償却").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '賃貸保証': search_element("賃貸保証").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        'クレジットカード決済': search_element("クレジットカード決済").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        '保険等加入': search_element("保険等加入").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        'その他一時金': search_element("その他一時金").word_normalize(textContent.replace(/\s{2}/g, "").trim()),
-                        'ランニングコスト': search_element("ランニングコスト").word_normalize(textContent.replace(/\s{2}/g, "").trim())
+                        '管理費等': word_normalize(search_element("管理費等").textContent.replace(/\s{2}/g, "").trim()),
+                        '管理費': word_normalize(search_element("管理費").textContent.replace(/\s{2}/g, "").trim()),
+                        '礼金': word_normalize(search_element("礼金").textContent.replace(/\s{2}/g, "").trim()),
+                        '敷金': word_normalize(search_element("敷金").textContent.replace(/\s{2}/g, "").trim()),
+                        '敷引': word_normalize(search_element("敷引").textContent.replace(/\s{2}/g, "").trim()),
+                        '共益費': word_normalize(search_element("共益費").textContent.replace(/\s{2}/g, "").trim()),
+                        '雑費': word_normalize(search_element("雑費").textContent.replace(/\s{2}/g, "").trim()),
+                        '鍵交換代等': word_normalize(search_element("鍵交換代等").textContent.replace(/\s{2}/g, "").trim()),
+                        '保証金': word_normalize(search_element("保証金").textContent.replace(/\s{2}/g, "").trim()),
+                        '保証金償却': word_normalize(search_element("保証金償却").textContent.replace(/\s{2}/g, "").trim()),
+                        '賃貸保証': word_normalize(search_element("賃貸保証").textContent.replace(/\s{2}/g, "").trim()),
+                        'クレジットカード決済': word_normalize(search_element("クレジットカード決済").textContent.replace(/\s{2}/g, "").trim()),
+                        '保険等加入': word_normalize(search_element("保険等加入").textContent.replace(/\s{2}/g, "").trim()),
+                        'その他一時金': word_normalize(search_element("その他一時金").textContent.replace(/\s{2}/g, "").trim()),
+                        'ランニングコスト': word_normalize(search_element("ランニングコスト").textContent.replace(/\s{2}/g, "").trim())
                     },
                     '契約条件': {
                         '現況': search_element("現況").textContent.replace(/\s{2}/g, "").trim(),
