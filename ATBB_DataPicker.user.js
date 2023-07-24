@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.4
+// @version      2.1.5
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -25,7 +25,7 @@
 
     function word_normalize(word){
         if(word == "なし"){
-            word = 0;
+            return '0';
         }
         return word;
     }
@@ -48,10 +48,10 @@
                         '専有面積': search_element("専有面積").textContent.replace(/\s{2}/g, "").trim(),
                         'バルコニー': search_element("バルコニー").textContent.replace(/\s{2}/g, "").trim(),
                         '建物構造': search_element("建物構造").textContent.replace(/\s{2}/g, "").trim(),
-                        '階建': search_element("階建/階").textContent.split("/")[0].replace(/\s{2}/g, "").trim(),
-                        '階': search_element("階建/階").textContent.split("/")[1].replace(/\s{2}/g, "").trim(),
-                        '築年': search_element("築年月").textContent.split("年")[0].replace("年", "").replace(/\s{2}/g, "").trim(),
-                        '築月': search_element("築年月").textContent.split("年")[1].replace("月", "").replace(/\s{2}/g, "").trim(),
+                        '階建': search_element("階建/階").textContent.split("/")[0].replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
+                        '階': search_element("階建/階").textContent.split("/")[1].replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
+                        '築年': search_element("築年月").textContent.split("年")[0].replace("年", "").replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
+                        '築月': search_element("築年月").textContent.split("年")[1].replace("月", "").replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
                         '総戸数': search_element("総戸数").textContent.replace(/\s{2}/g, "").trim(),
                         '駐車場': search_element("駐車場").textContent.replace(/\s{2}/g, "").trim(),
                         'バイク置場': search_element("バイク置場").textContent.replace(/\s{2}/g, "").trim(),
@@ -67,21 +67,21 @@
                         '周辺環境': search_element("周辺環境").textContent.replace(/\s{2}/g, "").trim()
                     },
                     '費用': {
-                        '管理費等': word_normalize(search_element("管理費等").textContent.replace(/\s{2}/g, "").trim()),
-                        '管理費': word_normalize(search_element("管理費").textContent.replace(/\s{2}/g, "").trim()),
-                        '礼金': word_normalize(search_element("礼金").textContent.replace(/\s{2}/g, "").trim()),
-                        '敷金': word_normalize(search_element("敷金").textContent.replace(/\s{2}/g, "").trim()),
-                        '敷引': word_normalize(search_element("敷引").textContent.replace(/\s{2}/g, "").trim()),
-                        '共益費': word_normalize(search_element("共益費").textContent.replace(/\s{2}/g, "").trim()),
-                        '雑費': word_normalize(search_element("雑費").textContent.replace(/\s{2}/g, "").trim()),
-                        '鍵交換代等': word_normalize(search_element("鍵交換代等").textContent.replace(/\s{2}/g, "").trim()),
-                        '保証金': word_normalize(search_element("保証金").textContent.replace(/\s{2}/g, "").trim()),
-                        '保証金償却': word_normalize(search_element("保証金償却").textContent.replace(/\s{2}/g, "").trim()),
-                        '賃貸保証': word_normalize(search_element("賃貸保証").textContent.replace(/\s{2}/g, "").trim()),
-                        'クレジットカード決済': word_normalize(search_element("クレジットカード決済").textContent.replace(/\s{2}/g, "").trim()),
-                        '保険等加入': word_normalize(search_element("保険等加入").textContent.replace(/\s{2}/g, "").trim()),
-                        'その他一時金': word_normalize(search_element("その他一時金").textContent.replace(/\s{2}/g, "").trim()),
-                        'ランニングコスト': word_normalize(search_element("ランニングコスト").textContent.replace(/\s{2}/g, "").trim())
+                        '管理費等': word_normalize(search_element("管理費等").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '管理費': word_normalize(search_element("管理費").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '礼金': word_normalize(search_element("礼金").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '敷金': word_normalize(search_element("敷金").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '敷引': word_normalize(search_element("敷引").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '共益費': word_normalize(search_element("共益費").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '雑費': word_normalize(search_element("雑費").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '鍵交換代等': word_normalize(search_element("鍵交換代等").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '保証金': word_normalize(search_element("保証金").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '保証金償却': word_normalize(search_element("保証金償却").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '賃貸保証': word_normalize(search_element("賃貸保証").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        'クレジットカード決済': word_normalize(search_element("クレジットカード決済").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        '保険等加入': word_normalize(search_element("保険等加入").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        'その他一時金': word_normalize(search_element("その他一時金").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, ''),
+                        'ランニングコスト': word_normalize(search_element("ランニングコスト").textContent.replace(/\s{2}/g, "").trim()).replace(/[^0-9]/g, '')
                     },
                     '契約条件': {
                         '現況': search_element("現況").textContent.replace(/\s{2}/g, "").trim(),
