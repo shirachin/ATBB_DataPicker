@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.5
+// @version      2.1.7
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -24,7 +24,7 @@
     }
 
     function word_normalize(word){
-        if(word == "なし"){
+        if(word == "なし" || word == ''){
             return '0';
         }
         return word;
@@ -48,7 +48,7 @@
                         '専有面積': search_element("専有面積").textContent.replace(/\s{2}/g, "").trim(),
                         'バルコニー': search_element("バルコニー").textContent.replace(/\s{2}/g, "").trim(),
                         '建物構造': search_element("建物構造").textContent.replace(/\s{2}/g, "").trim(),
-                        '階建': search_element("階建/階").textContent.split("/")[0].replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
+                        '階建': search_element("階建/階").textContent.split("/")[0].replace(/地下\d*階/g, '').replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
                         '階': search_element("階建/階").textContent.split("/")[1].replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
                         '築年': search_element("築年月").textContent.split("年")[0].replace("年", "").replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
                         '築月': search_element("築年月").textContent.split("年")[1].replace("月", "").replace(/\s{2}/g, "").replace(/[^0-9]/g, '').trim(),
