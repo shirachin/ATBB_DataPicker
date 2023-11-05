@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.8
+// @version      2.1.9
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -84,13 +84,13 @@
                         'ランニングコスト': word_normalize(search_element("ランニングコスト").textContent.replace(/\s{2}/g, "").trim())
                     },
                     '契約条件': {
-                        '現況': search_element("現況").textContent.replace(/\s{2}/g, "").trim(),
-                        '入居日': search_element("入居日").textContent.replace(/\s{2}/g, "").trim(),
-                        '契約期間': search_element("契約期間").textContent.replace(/\s{2}/g, "").trim(),
-                        '更新料': search_element("更新料").textContent.replace(/\s{2}/g, "").trim(),
-                        '入居条件': search_element("入居条件").textContent.replace(/\s{2}/g, "").trim(),
-                        '設備保証': search_element("設備保証").textContent.replace(/\s{2}/g, "").trim(),
-                        'フリーレント': search_element("フリーレント").textContent.replace(/\s{2}/g, "").trim()
+                        '現況': search_element("現況").textContent,
+                        '入居日': search_element("入居日").textContent,
+                        '契約期間': search_element("契約期間").textContent,
+                        '更新料': search_element("更新料").textContent,
+                        '入居条件': search_element("入居条件").textContent,
+                        '設備保証': search_element("設備保証").textContent,
+                        'フリーレント': search_element("フリーレント").textContent
                     }
                 }
 
