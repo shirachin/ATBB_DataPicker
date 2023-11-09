@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ATBB_DataPicker
 // @namespace    https://github.com/shirachin/ATBB_DataPicker
-// @version      2.1.9
+// @version      2.1.10
 // @description  Reads necessary information from ATBB and outputs it in json format.
 // @author       mimimi
 // @match        https://atbb.athome.co.jp/front-web/mainservlet/*
@@ -77,9 +77,9 @@
                         '鍵交換代等': word_normalize(search_element("鍵交換代等").textContent.replace(/\s{2}/g, "").trim()),
                         '保証金': word_normalize(search_element("保証金").textContent.replace(/\s{2}/g, "").trim()),
                         '保証金償却': word_normalize(search_element("保証金償却").textContent.replace(/\s{2}/g, "").trim()),
-                        '賃貸保証': word_normalize(search_element("賃貸保証").textContent.replace(/\s{2}/g, "").trim()),
+                        '賃貸保証': search_element("賃貸保証").textContent.trim(),
                         'クレジットカード決済': word_normalize(search_element("クレジットカード決済").textContent.replace(/\s{2}/g, "").trim()),
-                        '保険等加入': word_normalize(search_element("保険等加入").textContent.replace(/\s{2}/g, "").trim()),
+                        '保険等加入': search_element("保険等加入").textContent.trim(),
                         'その他一時金': word_normalize(search_element("その他一時金").textContent.replace(/\s{2}/g, "").trim()),
                         'ランニングコスト': word_normalize(search_element("ランニングコスト").textContent.replace(/\s{2}/g, "").trim())
                     },
